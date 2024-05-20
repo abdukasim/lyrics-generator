@@ -5,20 +5,26 @@ import Question from "./question";
 
 export default function Form() {
   const [index, setIndex] = useState<number>(0);
+  const [isForward, setIsForward] = useState<boolean>(true);
+
+  const handleNext = () => {
+    setIsForward(true);
+    setIndex(index + 1);
+  };
+
+  const handleBack = () => {
+    setIsForward(false);
+    setIndex(index - 1);
+  };
 
   return (
     <>
-      {index === 0 && <Question type="gender" />}
-      {index === 1 && <Question type="race" />}
-
+      <Question type={index === 0 ? "gender" : "race"} isForward={isForward} />
       <div className="absolute bottom-12 w-screen flex items-center gap-2">
-        <button
-          onClick={() => (index === 0 ? "" : setIndex(index - 1))}
-          className="btn"
-        >
+        <button onClick={() => index > 0 && handleBack()} className="btn">
           Back
         </button>
-        <button onClick={() => setIndex(index + 1)} className="btn">
+        <button onClick={handleNext} className="btn">
           Next
         </button>
       </div>
