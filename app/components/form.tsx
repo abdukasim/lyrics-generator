@@ -86,21 +86,23 @@ const Form = () => {
           </div>
         ))}
       </div>
-      <div className="absolute bottom-12 w-full max-w-4xl flex gap-2 px-4">
-        <button
-          onClick={handleBack}
-          className="px-5 py-3 bg-[#fafafa] text-black shadow-md rounded-lg disabled:opacity-50"
-          disabled={currentQuestion === 0}
-        >
-          Back
-        </button>
-        <button
-          onClick={handleNext}
-          className="px-5 py-3 bg-[#fafafa] text-black  rounded-lg disabled:opacity-50 shadow-sm"
-          disabled={currentQuestion === questions.length - 1}
-        >
-          Next
-        </button>
+      <div className="absolute bottom-0 bg-slate-100/80 w-screen h-20 pb px-4">
+        <div className="flex gap-2 w-full max-w-4xl mx-auto h-max">
+          <button
+            onClick={handleBack}
+            className="px-5 py-3 bg-[#fafafa] text-black shadow-md rounded-lg disabled:opacity-50"
+            disabled={currentQuestion === 0}
+          >
+            Back
+          </button>
+          <button
+            onClick={handleNext}
+            className="px-5 py-3 bg-[#fafafa] text-black  rounded-lg disabled:opacity-50 shadow-sm"
+            disabled={currentQuestion === questions.length - 1}
+          >
+            Next
+          </button>
+        </div>
       </div>
     </div>
   );
